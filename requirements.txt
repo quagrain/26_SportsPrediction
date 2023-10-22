@@ -3,4 +3,5 @@ streamlit
 scikit-learn==1.2.2
 pandas
 streamlit-lottie
-
+matplotlib==3.4.1
+plotly==4.14.3
