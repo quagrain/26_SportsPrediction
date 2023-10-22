@@ -1,7 +1,7 @@
 import requests
 import pickle
 import streamlit as st
-#from streamlit_lottie import st_lottie 
+from streamlit_lottie import st_lottie 
 from PIL import Image
 import numpy as np
 import pandas as pd
@@ -43,7 +43,7 @@ def load_lottie(url):
         return None
     return r.json()
 
-#lottie_ball = load_lottie("https://lottie.host/4b73c268-6131-4704-8906-ca575c28a29a/Vp3Hr8VmJa.json")
+lottie_ball = load_lottie("https://lottie.host/4b73c268-6131-4704-8906-ca575c28a29a/Vp3Hr8VmJa.json")
 st.header("PlayerPredicts", divider='rainbow')
 #Header of the website
 with st.container():
