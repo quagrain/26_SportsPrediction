@@ -63,36 +63,30 @@ with st.container():
 
 #sliders for user response
 with st.container():
-    #st.markdown("<small>This is even smaller text</small>", unsafe_allow_html=True)
-    #st.write("Please, rate your football skills based on these categories.")
     st.text("Please, rate your football skills based on these categories.")
     Movement_reactions = st.slider('Rate your movement reactions skills',0,100,0)
-    #st.write(Movement_reactions)
     Passing = st.slider('Rate your passing skills', 0,100,0)
     mentality_composure = st.slider('Rate your mentality composure',0,100,0)
-    dribbling = st.slider('Rate your  dribbling skills',0,100,0)
-    power_shot_power = st.slider('Rate your the power of your  shots',0,100,0)
+    dribbling = st.slider('Rate your dribbling skills',0,100,0)
+    release_clause_eur = st.number_input("Release clause in euros", min_value=0, max_value=None, value="min", step=1000)
+    wage_eur = st.number_input("Wage in euros", min_value=0, max_value=None, value="min", step=1000)
+    value_eur = st.number_input("Player value in euros", min_value=0, max_value=None, value="min", step=1000)
+    power_shot_power = st.slider('Rate your shot power',0,100,0)
     physic = st.slider('Rate your physic',0,100,0)
-    mentality_vision = st.slider('Rate your  mentality vision',0,100,0)
-    attacking_short_passing = st.slider('Rate your short passing attack skills',0,100,0)
-    shooting = st.slider('Rate your shooting skills',0,100,0)
-    skill_long_passing = st.slider('Rate your long passing skills',0,100,0)
+    mentality_vision = st.slider('Rate your mentality vision',0,100,0)
+    attacking_short_passing= st.slider('Rate your attacking short passing',0,100,0)
+    shooting= st.slider('Rate your shooting',0,100,0)
+    skill_long_passing= st.slider('Rate your long passing',0,100,0)
     age = st.slider('What is your age',16,  60, 16)
-    skill_ball_control= st.slider('Rate your ball control skills',0,100,0)
-    skill_curve= st.slider('Rate your ball curving skills',0,100,0)
-    attacking_crossing= st.slider('Rate your attack crossing skills',0,100,0)
-    power_long_shots= st.slider('Rate your the power of your long shots',0,100,0)
-    mentality_aggression= st.slider('Rate your mental aggression',0,100,0)
-    users_response=[Movement_reactions,Passing,mentality_composure,dribbling,power_shot_power,
-                 physic,mentality_vision,attacking_short_passing,shooting,skill_long_passing,age,
-                skill_ball_control,skill_curve,attacking_crossing,
-                power_long_shots,mentality_aggression]
+
+    users_response=[Movement_reactions,Passing,mentality_composure,dribbling,release_clause_eur,
+                 wage_eur,value_eur,power_shot_power,physic,mentality_vision,
+                attacking_short_passing,shooting,skill_long_passing,age]
     submit = st.button("Submit")
-    cols = ['movement_reactions', 'passing', 'mentality_composure', 'dribbling', 
-            'power_shot_power', 'physic', 'mentality_vision', 'attacking_short_passing', 
-            'shooting', 'skill_long_passing', 'age', 'skill_ball_control',
-              'skill_curve', 'attacking_crossing', 
-            'power_long_shots', 'mentality_aggression']
+    cols = ['movement_reactions', 'passing', 'mentality_composure', 'dribbling',
+       'release_clause_eur', 'wage_eur', 'value_eur', 'power_shot_power',
+       'physic', 'mentality_vision', 'attacking_short_passing', 'shooting',
+       'skill_long_passing', 'age']
     if submit:
         newData = pd.DataFrame([users_response],columns= cols)
         scaledData = scaler_module.transform(newData)
